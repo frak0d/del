@@ -34,10 +34,10 @@ int main(const int argc, const char* argv[])
             {
                 auto fpath = dir_entry.path().string();
                 if (verbose) std::printf("%s\n", fpath.c_str());
-                std::system(("shred -uxzfn "s+passes+' '+fpath).c_str());
+                std::system(("shred -uxzfn "s+passes+" \""+fpath+'"').c_str());
             }
         }
     }
     
-    std::system(("rm -rf "s+path).c_str());
+    fs::remove(path);
 }
