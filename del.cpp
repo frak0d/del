@@ -21,7 +21,7 @@ int main(const int argc, const char* argv[])
     {
         std::puts("\x1b[1;33mWarning:\x1b[0;33m Ignoring Extra Arguments.\x1b[0m");
     }
-
+    
     auto path = argv[1];
     auto passes = argc>2 ? argv[2] : "1";
     bool verbose = true;
@@ -39,5 +39,5 @@ int main(const int argc, const char* argv[])
         }
     }
     
-    fs::remove(path);
+    fs::remove_all(path);
 }
